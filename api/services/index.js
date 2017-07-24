@@ -21,5 +21,7 @@ router.post('/users', urlService.createUser);
 router.delete('/user/:userid', urlService.deleteUser);
 // Retorna usuarios
 router.get('/users', urlService.getUsers);
+// Hit url encurtada
+router.get('/:randomurl', urlService.hitUrl);
 
 module.exports = router;

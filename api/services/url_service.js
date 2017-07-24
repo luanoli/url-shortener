@@ -3,7 +3,22 @@ var User = require('../models/userModel');
 var Url = require('../models/urlModel');
 var random = require('../utils/random');
 
+var baseUrl = "http://localhost:3000/";
+
 var urlService = {
+
+    hitUrl: function(req, res) {
+        var randomUrl = req.params.randomurl;
+
+        Url.findOne({
+            shortUrl: baseUrl + randomUrl
+        }, function(err, url) {            
+            url.hits.$inc();
+            url.save();
+            res.status(200);
+            res.json({});
+        });
+    },
 
     createUrl: function(req, res) {
 
@@ -11,9 +26,9 @@ var urlService = {
         for (var i = 0; i <= 7; i++) {
             value[i] = random.randomSimbol();
         }
-        var shortUrl = "http://short.url/" + value.join('');
+        var shortUrl = baseUrl + value.join('');
 
-        Url.create({            
+        Url.create({
             hits: 0,
             url: req.body.url,
             shortUrl: shortUrl,
@@ -28,7 +43,7 @@ var urlService = {
         });
     },
 
-    deleteUrl: function(req, res){
+    deleteUrl: function(req, res) {
 
         Url.remove({
             id: req.params.id
