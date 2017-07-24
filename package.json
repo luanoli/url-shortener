@@ -27,6 +27,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "mongoose": "^4.11.3"
+    "mongoose": "^4.11.3",
+    "mongoose-auto-increment": "^5.0.1"
   }
 }

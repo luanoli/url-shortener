@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var autoIncrement = require('mongoose-auto-increment');
 
 var UrlSchema = new Schema({
     id: {
@@ -19,13 +20,14 @@ var UrlSchema = new Schema({
         default: ''
     },
     userid: {
-        type: Number,
-        min: 0
+        type: String,
+        default: ''
     }
 }, {
     versionKey: false
 });
 
+UrlSchema.plugin(autoIncrement.plugin, { model: 'Url', field: 'id' });
 var Url = mongoose.model('Url', UrlSchema);
 
 module.exports = Url;
