@@ -21,7 +21,7 @@ describe('Url', function() {
     });
 });
 
-describe('/users/:userid/urls', function() {
+describe('POST /users/:userid/urls', function() {
     it('Deve inserir a nova url e retornar o objeto criado', function(done) {
 
         var url = {
@@ -42,7 +42,7 @@ describe('/users/:userid/urls', function() {
     });
 });
 
-describe('/stats', function() {
+describe('GET /stats', function() {
     it('Deve retornar as estatisticas globais', function(done) {
         chai.request(server)
             .get('/stats')
@@ -57,7 +57,31 @@ describe('/stats', function() {
     });
 });
 
-describe('/urls/:id', function() {
+describe('GET /users/:userId/stats', function() {
+    it('Deve retornar as estatisticas por usuario', function(done) {
+        chai.request(server)
+            .get('/users/luan/stats')
+            .end(function(error, res) {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.urlCount.should.be.eql(1);
+                res.body.hits.should.be.eql(0);
+                res.body.topUrls.length.should.be.eql(1);
+                done();
+            });
+    });
+
+    it('Deve retornar 404 para usuario inexistente', function(done) {
+        chai.request(server)
+            .get('/users/teste/stats')
+            .end(function(error, res) {
+                res.should.have.status(404);              
+                done();
+            });
+    });
+});
+
+describe('GET /urls/:id', function() {
     it('Deve retornar 301', function() {
 
         Url.findOne({
