@@ -13,3 +13,5 @@ app.use('/', require('./api/services'));
 app.listen(port);
 
 console.log('URL Shortener RESTful API server started on: ' + port);
+
+module.exports = app;
