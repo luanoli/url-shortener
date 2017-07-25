@@ -6,6 +6,8 @@ var mongoose = require('mongoose'),
 var dbURI = 'mongodb://localhost/url-shortener';
 
 // Cria a conexão
-mongoose.connect(dbURI);
+mongoose.connect(dbURI, {
+    useMongoClient: true
+});
 
 autoIncrement.initialize(mongoose.connection);

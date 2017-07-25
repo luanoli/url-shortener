@@ -48,11 +48,21 @@ var urlService = {
 
     createUrl: function(req, res) {
 
+
+        if (typeof req.body.url === 'undefined' || !req.body.url) {
+
+            res.status(400);
+            var err = new Error('Bad Request');
+            err.status = 400;
+            res.end();
+            return;
+        }
+
         User.findOne({
             id: req.params.userid
         }, function(err, userObject) {
-        
-            if (userObject === null || userObject === undefined) {        
+
+            if (userObject === null || userObject === undefined) {
                 User.create({
                     id: req.params.userid
                 });
