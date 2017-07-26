@@ -35,7 +35,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 Adicionar detalhes par ao apt encontrar os pacotes e baixar:
 echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 
-Atualizar pacotes e instalar MongoDB
+Atualizar pacotes e instalar MongoDB:
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 ```
@@ -45,28 +45,28 @@ Iniciar serviço do MongoDB:
 mongod
 ```
 
-##Instalação
+## Instalação
 
 No diretório raiz da aplicação onde está localizado o arquivo package.json, executar o seguinte comando para instalar as dependências:
 ```
 npm install
 ```
 
-##Executar a aplicação
+## Executar a aplicação
 
 No diretório raiz da aplicação executar:
 ```
 npm run start
 ```
 
-##Executar testes
+## Executar testes
 
 No diretório raiz da aplicação executar:
 ```
 npm test
 ```
 
-##Endpoints
+## Endpoints
 
 |URI|Método|Descrição|
 |:----:|:---:|----|
