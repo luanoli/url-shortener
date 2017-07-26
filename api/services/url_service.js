@@ -177,6 +177,7 @@ var urlService = {
                 if (err) {
                     return console.log(err);
                 } else {
+                    res.status(200);
                     res.json(url);
                 }
             });
@@ -189,6 +190,7 @@ var urlService = {
             if (err) {
                 return console.log(err);
             } else {
+                res.status(200);
                 res.json(users);
             }
         });
@@ -260,6 +262,7 @@ var statsUtil = function(res, userid) {
                             if (err) {
                                 return console.log(err);
                             } else {
+                                res.status(200);
                                 res.json({
                                     "hits": hitsTotal,
                                     "urlCount": count,
