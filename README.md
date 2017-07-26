@@ -72,7 +72,7 @@ npm test
 |:----:|:---:|----|
 |/urls/:id|GET|Retorna 301 redirect para o endereço original da URL|
 |/users/:userid/urls|POST|Cadastra nova URL|
-|/stats|GET|// Retorna estatísticas globais|
+|/stats|GET|Retorna estatísticas globais|
 |/users/:userid/stats|GET|Retorna estatísticas por usuário|
 |/stats/:id|GET|Retorna estatísticas por URL|
 |/urls/:id|DELETE|Exclui uma URL|
